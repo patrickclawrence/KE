@@ -1,4 +1,4 @@
-from tastypie.resources import ModelResource
+from tastypie.resources import ModelResource,  ALL, ALL_WITH_RELATIONS
 from users.models import BattleUser, BattleLog
 from tastypie.authentication import BasicAuthentication
 from tastypie.authorization import Authorization
@@ -58,7 +58,11 @@ class BattleUserResource(ErrorModelResource):
         authorization = Authorization()
         authentication = BasicAuthentication()
         allowed_methods = ['get', 'post', 'put', 'delete']
-    
+        filtering = {
+            'nickName' : ALL,
+            'lastName' : ALL
+        
+        } 
 
     def dehydrate(self, bundle):
         logger.error(bundle.data)
@@ -97,4 +101,7 @@ class BattleLogResource(ErrorModelResource):
         authorization = Authorization()
         authentication = BasicAuthentication()
         allowed_methods = ['get', 'post']
-    
+        filtering = {
+            'start' : ['exact', 'lt', 'lte', 'gte', 'gt']
+        } 
+

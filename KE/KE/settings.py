@@ -101,10 +101,10 @@ LOGGING = {
             'class': 'django.utils.log.AdminEmailHandler'
         },
         'applogfile': {
-            'level':'DEBUG',
-            'class':'logging.handlers.RotatingFileHandler',
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
             'filename': os.path.join(BASE_DIR, 'users.log'),
-            'maxBytes': 1024*1024*15, # 15MB
+            'maxBytes': 1024 * 1024 * 15,  # 15MB
             'backupCount': 10,
         }
     },
@@ -115,8 +115,8 @@ LOGGING = {
             'propagate': True,
         },
         'users': {
-            'handlers': ['applogfile',],
+            'handlers': ['applogfile', ],
             'level': 'DEBUG',
         },
-    }   
+    }
 }
