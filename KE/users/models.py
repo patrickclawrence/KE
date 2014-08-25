@@ -7,6 +7,8 @@ from tastypie.utils.timezone import now
  A user model used to represent a player in varitety of Battle type games  
 
 """
+
+
 class BattleUser(models.Model):
 
     firstName = models.CharField(max_length=100)
@@ -18,8 +20,7 @@ class BattleUser(models.Model):
     created = models.DateTimeField(default=now)
     last_seen = models.DateTimeField(default=now)
 
-
-    def __unicode__(self): 
+    def __unicode__(self):
         return "Battle User " + self.firstName + " " + self.lastName
 
 """
@@ -28,6 +29,8 @@ class BattleUser(models.Model):
  A log used to represent a previous battle. 
 
 """
+
+
 class BattleLog(models.Model):
 
     attacker = models.ForeignKey(BattleUser, related_name='attacker')
@@ -35,4 +38,3 @@ class BattleLog(models.Model):
     winner = models.ForeignKey(BattleUser, related_name='winner')
     start = models.DateTimeField(default=now)
     end = models.DateTimeField(default=now)
-

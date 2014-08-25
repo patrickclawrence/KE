@@ -10,14 +10,15 @@ from tastypie.utils.timezone import now
 
 class UserResourceTest(ResourceTestCase):
     fixtures = ['test_entries.json']
-    
+
     def setUp(self):
         super(UserResourceTest, self).setUp()
 
         # Create a user.
         self.username = 'funkyMonkey'
         self.password = 'banana'
-        self.user = User.objects.create_user(self.username, 'daniel@example.com', self.password)
+        self.user = User.objects.create_user(
+            self.username, 'daniel@example.com', self.password)
 
         # Fetch the ``battleUser`` object we'll use in testing.
         self.user_1 = Entry.objects.get(firstName='TestUser1')
@@ -30,21 +31,22 @@ class UserResourceTest(ResourceTestCase):
         # frequently (enough).
         self.post_data = {
             'user': '/api/v1/battleuser/{0}/'.format(self.user.pk),
-            'firstName' : 'TestUser1',
-            'lastName' : 'TestUser1',
-            'nickName' : 'TestUser1',
-            'wins' : 3,
-            'losses' : 4,
-            'winStreak' : 2
-            'created' : now()
-            'last_seen' : now()
+            'firstName': 'TestUser1',
+            'lastName': 'TestUser1',
+            'nickName': 'TestUser1',
+            'wins': 3,
+            'losses': 4,
+            'winStreak': 2
+            'created': now()
+            'last_seen': now()
         }
+
     def get_credentials(self):
             return self.create_basic(username=self.username, password=self.password)
 
-
     def test_get_list_unauthorzied(self):
-        self.assertHttpUnauthorized(self.api_client.get('/api/v1/entries/', format='json'))
+        self.assertHttpUnauthorized(
+            self.api_client.get('/api/v1/entries/', format='json'))
 
  def test_get_list_json(self):
         resp = self.api_client.get('/api/v1/battleuser/', format='json', authentication=self.get_credentials())
