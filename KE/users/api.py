@@ -13,6 +13,12 @@ from types import *
 # Get an instance of a logger
 logger = logging.getLogger('users')
 
+"""
+    Class ErrorModelResource
+
+    Extend the ModelResource class to introduce custom error handling for this application
+
+"""
 class ErrorModelResource(ModelResource):
     
     def wrap_view(self, view):
@@ -36,6 +42,12 @@ class ErrorModelResource(ModelResource):
                 return self.error_response(request, data, response_class=HttpBadRequest)
         return wrapper
 
+"""
+ Class BattleUserResource
+
+ Expose an api for the battle user models
+
+"""
 
 class BattleUserResource(ErrorModelResource):
     
@@ -66,6 +78,11 @@ class BattleUserResource(ErrorModelResource):
 
         return bundle
 
+"""
+ Class BattleLogResource
+
+ Expose a api for the battle log model
+"""
 
 class BattleLogResource(ErrorModelResource):
     

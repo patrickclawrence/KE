@@ -1,7 +1,12 @@
 from django.db import models
 from tastypie.utils.timezone import now
 
+"""
+ Class BattleUser
+ 
+ A user model used to represent a player in varitety of Battle type games  
 
+"""
 class BattleUser(models.Model):
 
     firstName = models.CharField(max_length=100)
@@ -17,7 +22,12 @@ class BattleUser(models.Model):
     def __unicode__(self): 
         return "Battle User " + self.firstName + " " + self.lastName
 
+"""
+ Class BattleLog
 
+ A log used to represent a previous battle. 
+
+"""
 class BattleLog(models.Model):
 
     attacker = models.ForeignKey(BattleUser, related_name='attacker')
