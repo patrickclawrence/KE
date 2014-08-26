@@ -29,3 +29,8 @@ curl -v --user patrick:pLaAtW12 -H "Accept: application/json" -H "Content-Type: 
 # Update a battle log NOT ALLOWED
 curl -v --user patrick:pLaAtW12 -H "Accept: application/json" -H "Content-Type: application/json" -X PUT -d '{"attacker" :  "/v1/battleUser/14/", "defender" :  "/v1/battleUser/1/"}'  http://127.0.0.1:8000/v1/battles/
 
+# grab a filtered user result
+curl  --user patrick:pLaAtW12 -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://127.0.0.1:8000/v1/battlelog/?nickName=pdiddy
+
+# grab a filtered battle log result
+curl  --user patrick:pLaAtW12 -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://127.0.0.1:8000/v1/battles/?start_gt=2011-05-20T00:46:38
