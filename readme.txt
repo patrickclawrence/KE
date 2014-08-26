@@ -7,6 +7,8 @@ sudo apt-get install libmysqlclient-dev
 Create the databases in mysql 
 mysql -u*** -p*** 
 CREATE DATABASE KE;
+CREATE USER 'Kixeye'@'localhost' IDENTIFIED BY 'Kixeye';
+GRANT ALL PRIVILEGES ON * . * TO 'Kixeye'@'localhost';
 
 Sync the table to your new DB
 python manage.py syncdb

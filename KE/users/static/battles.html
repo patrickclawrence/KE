@@ -3,40 +3,44 @@
 <head>
 <title>Ultimate Battle Users and Logs</title>
 <link rel="stylesheet" href="battle.css" type="text/css">
+<link rel="stylesheet" href="jquery.datetimepicker.css" type="text/css">
 <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="jquery.datetimepicker.js"></script>
 <script type="text/javascript" src="battle.js"> </script>
 
 </head>
 
 <body>
-	 <div class="tab">
-       <input type="radio" id="tab-1" name="tab-group-1" checked>
-       <label for="tab-1">Users</label>
-       <div class="content">
-           <div>
-           		<form id="nickForm">
-           			<span>Nick Name: </span><input id="nickSearch" type="text" name="nickName" id='nick'>
-           			<input type="submit" value="Submit">
-           		</form>
-           </div>
-           <div id="userResult">
-           </div>
-       </div> 
-   </div>
+  <div class="tab">
+    <input type="radio" id="tab-1" name="tab-group-1" checked>
+    <label for="tab-1">Users</label>
+    <div class="content">
+      <div>
+        <form id="nickForm">
+       		<span>Nick Name: </span><input id="nickSearch" type="text" name="nickName" id='nick'>
+       		<input type="submit" value="Submit">
+       	</form>
+      </div>
+      <div id="userResult">
+      </div>
+    </div> 
+  </div>
     
-   <div class="tab">
-       <input type="radio" id="tab-2" name="tab-group-1">
-       <label for="tab-2">Battle Logs</label>
-       
-       <div class="content">
-             <div>
-           		<form>
-           			<span>Start Date</span><input type="text" name="startDate" id='start'>
-           			<br>
-           			<span>End Datex</span><input type="text" name="endDate" id='end'>
-           			<input type="submit" value="Submit">
-           		</form>
-           </div>
-       </div> 
-   </div>
+  <div class="tab">
+    <input type="radio" id="tab-2" name="tab-group-1">
+    <label for="tab-2">Battle Logs</label> 
+    <div class="content">
+      <div>
+        <form id="logForm">
+     			<span>Start Date : </span><input type="text" name="startDate" id='start'>
+     			<br>
+     			<span>End Date : </span><input type="text" name="endDate" id='end'>
+     			<br>
+          <input type="submit" value="Submit">
+     		</form>
+        <div id="logResult">
+        </div>
+     </div>
+    </div> 
+  </div>
 </html>

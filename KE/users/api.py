@@ -81,14 +81,12 @@ class BattleUserResource(ErrorModelResource):
         }
 
     def dehydrate(self, bundle):
-        logger.error(bundle.data)
         request = bundle.request or HttpRequest
         d = {
             'error': False,
             'time': now()
         }
         if request.method.lower() == 'post':
-            pass
             d['userId'] = bundle.data['id']
         elif request.method.lower() == 'put':
             pass
@@ -117,5 +115,24 @@ class BattleLogResource(ErrorModelResource):
         authentication = BasicAuthentication()
         allowed_methods = ['get', 'post']
         filtering = {
-            'start': ['exact', 'lt', 'lte', 'gte', 'gt']
+            'start': ['exact', 'lt', 'lte', 'gte', 'gt'],
+            'end': ['exact', 'lt', 'lte', 'gte', 'gt']
         }
+
+
+    def dehydrate(self, bundle):
+        logger.error(bundle.data)
+        request = bundle.request or HttpRequest
+        d = {
+            'error': False,
+            'time': now()
+        }
+        if request.method.lower() == 'post':
+            d['battleId'] = bundle.data['id']
+        elif request.method.lower() == 'put':
+            pass
+        else:
+            d['battleLog'] = bundle.data
+        bundle.data = d
+
+        return bundle
